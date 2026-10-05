@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sl" translate="no" class="antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="application-name" content="ParakeetAI" />
+    <meta name="google" content="notranslate" />
+    <meta name="description" content="Zaposlujemo v Ljubljani. Naše aplikacije uporablja več kot milijon ljudi, ekipa pa je majhna. Poglej prosta mesta in spoznaj ekipo." />
+    <meta property="og:title" content="ParakeetAI: kariera in prosta delovna mesta" />
+    <meta property="og:description" content="Zaposlujemo v Ljubljani. Naše aplikacije uporablja več kot milijon ljudi, ekipa pa je majhna. Poglej prosta mesta in spoznaj ekipo." />
+    <meta property="og:site_name" content="ParakeetAI" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://www.parakeet-ai.com/hiring/team-photo.jpeg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ParakeetAI: kariera in prosta delovna mesta" />
+    <meta name="twitter:description" content="Zaposlujemo v Ljubljani. Naše aplikacije uporablja več kot milijon ljudi, ekipa pa je majhna. Poglej prosta mesta in spoznaj ekipo." />
+    <meta name="twitter:image" content="https://www.parakeet-ai.com/hiring/team-photo.jpeg" />
+    <link rel="canonical" href="https://www.parakeet-ai.com/hiring" />
+    <link rel="icon" href="https://www.parakeet-ai.com/favicon.ico" />
+    <title>ParakeetAI: kariera in prosta delovna mesta</title>
+
+    <!--
+      THEME SCRIPT — identical logic to parakeet-ai.com
+      The real site:
+        - Only enables dark/light toggle for /dashboard, /callSession, /auth/desktop, /resumeMaker
+        - For ALL other pages (including /hiring) it REMOVES the "dark" class → forced light mode
+      We replicate this exactly.
+    -->
+    <script>
+      (function () {
+        try {
+          var prefixes = ["/dashboard", "/callSession", "/auth/desktop", "/resumeMaker"];
+          var unthemed  = ["/resumeMaker/print"];
+          var path = window.location.pathname;
+          function match(p) { return path === p || path.indexOf(p + "/") === 0; }
+          var themed = !unthemed.some(match) && prefixes.some(match);
+          if (!themed) {
+            // /hiring is NOT in the themed list → always light mode
+            document.documentElement.classList.remove("dark");
+            return;
+          }
+          // dashboard etc — read pk_theme_shell cookie
+          var cookie = "pk_theme_shell";
+          var fallback = "light";
+          function read(name) {
+            var m = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+            return m ? m[1] : "";
+          }
+          function decode(value) {
+            var r = value.indexOf("system:") === 0 ? value.slice(7) : value;
+            return r === "light" || r === "dark" ? r : "";
+          }
+          var resolved = decode(read(cookie));
+          if (!resolved) resolved = fallback;
+          var isDark =
+            resolved === "dark" ||
+            (resolved !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", isDark);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Prevent FOUC: always white bg since hiring is forced light -->
+    <style>html { background: #ffffff; }</style>
+  </head>
+  <body class="bg-background text-foreground">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
