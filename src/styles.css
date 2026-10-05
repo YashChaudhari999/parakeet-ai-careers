@@ -887,3 +887,103 @@ ul, ol { list-style: none; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .pk-prefooter-cta__sub { font-size: 16px; color: #a1a1aa; max-width: 540px; margin: 0; line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN SYSTEM — ALL DEVICES & SCREEN SIZES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Laptop / Medium screens (<= 1100px) ─────────────────── */
+@media (max-width: 1100px) {
+  .pk-nav__links { gap: 14px; }
+  .pk-nav__link { font-size: 13px; }
+  .pk-hero__heading { font-size: clamp(36px, 5.5vw, 54px); }
+  .pk-podcasts-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── 2. Tablets & Mobile Landscape (<= 900px) ───────────────── */
+@media (max-width: 900px) {
+  .pk-nav { height: auto; padding: 10px 14px; }
+  .pk-nav__links { display: none; }
+  .pk-nav__hamburger { display: flex; }
+  .pk-nav__signin, .pk-nav__try { display: none; }
+  .pk-nav__mobile { display: flex; }
+
+  .pk-hero { padding: 112px 20px 64px; gap: 36px; }
+  .pk-section { padding: 64px 20px; gap: 32px; scroll-margin-top: 80px; }
+
+  .pk-wolt-card {
+    flex-direction: column; text-align: center; padding: 36px 24px; gap: 24px;
+    align-items: center;
+  }
+  .pk-wolt-card__title { font-size: 44px; }
+  .pk-wolt-card__sub { font-size: 16px; }
+
+  .pk-why-grid { grid-template-columns: 1fr; }
+  .pk-process-steps { grid-template-columns: 1fr; }
+  .pk-founders-grid { grid-template-columns: 1fr; }
+  .pk-podcasts-grid { grid-template-columns: repeat(2, 1fr); }
+  .pk-lifestyle-grid { grid-template-columns: 1fr; }
+  .pk-lifestyle-card { height: 380px; padding: 24px; }
+
+  .pk-footer-real {
+    flex-direction: column; gap: 40px; padding: 40px 24px;
+  }
+  .pk-footer-real__left, .pk-footer-real__right { width: 100%; }
+}
+
+/* ── 3. Smartphones / Small Devices (<= 640px) ──────────────── */
+@media (max-width: 640px) {
+  .pk-nav { top: 12px; width: calc(100% - 24px); border-radius: 18px; }
+
+  .pk-hero__heading { font-size: 32px; letter-spacing: -0.02em; }
+  .pk-hero__sub { font-size: 15px; }
+
+  .pk-hero__ctas { flex-direction: column; width: 100%; }
+  .pk-hero__ctas .pk-btn { width: 100%; justify-content: center; }
+
+  .pk-hero__metrics {
+    flex-direction: column; gap: 16px; align-items: center; width: 100%;
+  }
+  .pk-hero__metric-divider { display: none; }
+  .pk-hero__metric-value { font-size: 32px; }
+
+  .pk-section__heading { font-size: 26px; }
+  .pk-section__sub { font-size: 15px; }
+
+  .pk-filters { gap: 6px; }
+  .pk-filter { font-size: 13px; padding: 6px 12px; }
+
+  .pk-role__head { flex-direction: column; gap: 14px; padding: 18px; }
+  .pk-role__title { font-size: 18px; }
+  .pk-role__head-actions {
+    width: 100%; justify-content: space-between; margin-left: 0;
+  }
+  .pk-role__quick-apply { flex: 1; justify-content: center; }
+  .pk-role__body-inner { margin: 0 16px; padding: 18px 0; }
+  .pk-role__apply-box { flex-direction: column; align-items: stretch; gap: 16px; padding: 16px; }
+  .pk-role__apply-right button { width: 100%; justify-content: center; }
+
+  .pk-founder-card { flex-direction: column; text-align: center; align-items: center; }
+  .pk-founder-socials { justify-content: center; }
+
+  .pk-podcasts-grid { grid-template-columns: 1fr; }
+
+  .pk-open-apply-card {
+    flex-direction: column; text-align: center; align-items: center; padding: 20px;
+  }
+  .pk-open-apply-card button { width: 100%; justify-content: center; }
+
+  .pk-prefooter-cta { padding: 80px 20px; }
+  .pk-prefooter-cta__title { font-size: 32px; }
+
+  .pk-modal__box { padding: 20px; border-radius: 20px; }
+}
+
+/* ── 4. Extra Small Devices (<= 400px) ───────────────────────── */
+@media (max-width: 400px) {
+  .pk-hero__heading { font-size: 28px; }
+  .pk-wolt-card__title { font-size: 34px; }
+  .pk-lifestyle-card__title { font-size: 22px; }
+  .pk-lifestyle-card { height: 320px; }
+}
+
